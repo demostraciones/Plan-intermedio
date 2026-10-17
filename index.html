@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Express</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { background: #f1f5f9; color: #1e293b; padding-bottom: 20px; }
+        header { background: #0f172a; color: white; padding: 15px; text-align: center; }
+        header h1 { font-size: 1.2rem; }
+        
+        .container { max-width: 480px; margin: 0 auto; padding: 12px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        
+        .card { background: white; border-radius: 8px; padding: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: space-between; }
+        .card img { width: 100%; height: 110px; object-fit: cover; border-radius: 6px; }
+        .card h3 { font-size: 0.85rem; margin: 8px 0 4px; color: #334155; }
+        .price { font-weight: bold; color: #0284c7; font-size: 0.95rem; margin-bottom: 8px; }
+        
+        .btn-buy { background: #22c55e; color: white; text-align: center; padding: 8px; border-radius: 5px; text-decoration: none; font-size: 0.8rem; font-weight: bold; display: block; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tienda Express</h1>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <!-- Producto 1 -->
+            <div class="card">
+                <img src="https://via.placeholder.com/150" alt="Prod 1">
+                <h3>Accesorio Universal Modelo A</h3>
+                <div class="price">$12.500</div>
+                <a href="#" class="btn-buy" onclick="pedir('Accesorio Universal Modelo A', '$12.500')">Pedir por WA</a>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="card">
+                <img src="https://via.placeholder.com/150" alt="Prod 2">
+                <h3>Kit de Repuestos Básicos</h3>
+                <div class="price">$18.000</div>
+                <a href="#" class="btn-buy" onclick="pedir('Kit de Repuestos Básicos', '$18.000')">Pedir por WA</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const WA_NUMERO = "5491100000000"; // Reemplazar número
+
+        function pedir(producto, precio) {
+            const msj = encodeURIComponent(`Hola! Quisiera pedir: ${producto} (${precio})`);
+            window.open(`https://wa.me/${WA_NUMERO}?text=${msj}`, '_blank');
+        }
+    </script>
+</body>
+</html>
